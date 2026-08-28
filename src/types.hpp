@@ -220,8 +220,20 @@ namespace tgui {
 				.screen_width = c.screenwidth(),
 				.screen_height = c.screenheight(),
 				.font_scale = c.fontscale(),
-				.density = c.density()
+				.density = c.density(),
+				.refresh_rate = c.refreshrate(),
+				.aspect_ratio = c.aspectratio(),
+				.hdr_supported = c.hdrsupported(),
+				.hdr_types_count = static_cast<uint32_t>(c.hdrtypes_size()),
+				.hdr_types = {},
+				.hdr_max_luminance = c.hdrmaxluminance(),
+				.hdr_max_average_luminance = c.hdrmaxaverageluminance(),
+				.hdr_min_luminance = c.hdrminluminance()
 		};
+		for (int i = 0; i < c.hdrtypes_size() && i < 8; ++i)
+			conf.hdr_types[i] = c.hdrtypes(i);
+		if (conf.hdr_types_count > 8)
+			conf.hdr_types_count = 8;
 		strncpy(conf.country, c.country().c_str(), sizeof(conf.country));
 		strncpy(conf.language, c.language().c_str(), sizeof(conf.language));
 		conf.country[sizeof(conf.country)-1] = '\0';
