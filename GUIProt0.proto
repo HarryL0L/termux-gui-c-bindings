@@ -107,6 +107,13 @@ message Configuration {
   The density of the display.
    */
   float density = 10;
+  float refreshRate = 11;
+  float aspectRatio = 12;
+  bool hdrSupported = 13;
+  repeated int32 hdrTypes = 14;
+  float hdrMaxLuminance = 15;
+  float hdrMaxAverageLuminance = 16;
+  float hdrMinLuminance = 17;
 }
 
 /*
