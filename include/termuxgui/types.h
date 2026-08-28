@@ -228,6 +228,14 @@ typedef struct {
 	double font_scale;
 	/// The display density, such that screenwidth * density = screenwidth_in_px.
 	double density;
+	double refresh_rate;
+	double aspect_ratio;
+	bool hdr_supported;
+	uint32_t hdr_types_count;
+	int32_t hdr_types[8];
+	double hdr_max_luminance;
+	double hdr_max_average_luminance;
+	double hdr_min_luminance;
 } tgui_activity_configuration;
 
 
